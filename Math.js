@@ -24,4 +24,8 @@ djsex.math = {
 
         return hex;
     },
+
+    invert: function(value) {
+        return (value * (-1));
+    },
 };
