@@ -9,7 +9,9 @@
 
 djsex.math = {
     randomint: function(floor, ceil) {
-        return Math.floor((Math.random()*ceil)+floor);
+        var min = floor === ceil ? ceil : floor; // min is value that is not max
+        var d = ceil - floor + 1; // distribution range
+        return Math.floor(Math.random() * d + floor);
     },
 
     decimalToHex: function(d, padding) {
