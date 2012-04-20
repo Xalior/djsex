@@ -1,9 +1,30 @@
-/* Simple 'Class' style JavaScript Inheritance
+/*
+ * Filename: djsex/Core.js
+ * Source  :
+ * Author  :
+ * Version :
+ * Summary :
+ * Abstract:
+ */
+
+/* Original Simple 'Class' style JavaScript Inheritance From and
  * Based upon (MIT Licensed) code by John Resig http://ejohn.org/
  */
 var djsex = {
     init: function(){
     	var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
+
+        // Check if we are missing the 'bind' object on the Function prototype,
+        // if so, add it.
+        if (!(typeof Function.prototype.bind == 'function')) {
+            Function.prototype.bind = function (bind) {
+                var self = this;
+                return function () {
+                    var args = Array.prototype.slice.call(arguments);
+                    return self.apply(bind || null, args);
+                };
+            };
+        }
 
     	// Create a new Class that inherits from this class
     	djsex.Class.extend = function(prop) {
