@@ -93,7 +93,6 @@ var djsex = {
     },
 
     onDOMReady: function(fn, ctx){
-        alert("domedone");
         var ready, timer;
         var onChange = function(e){
             if(e && e.type == "DOMContentLoaded"){
