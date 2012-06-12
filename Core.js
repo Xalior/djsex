@@ -84,6 +84,9 @@ var djsex = {
         console.debug(msg);
     },
 
+    log: function(msg){
+        console.log(new Date()+": "+msg);
+    },
 
 	// The base Class implementation (does nothing)
     Class: function(){
