@@ -32,6 +32,9 @@ djsex.anim = {
          */
     },
 
+	redraw: function(el) {
+		el.style.webkitTransform = el.style.webkitTransform;
+	}
 };
 
 djsex.anim.init();
