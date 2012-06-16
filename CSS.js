@@ -13,4 +13,16 @@ djsex.css = {
         else style.appendChild(rules);
             head.appendChild(style);
     },
+    
+    appendClass: function (el, classname) {
+	    var classes = el.className.split(" ");
+	    var alreadyclassed = false;
+	    classes.forEach(function(thisclassname) {
+	    	if(classname == thisclassname)
+	    		alreadyclassed=true;
+	    });
+	    if(!alreadyclassed)
+	    	classes.push(classname);
+		el.className = classes.join(" ")
+    },
 };
