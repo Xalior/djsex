@@ -132,5 +132,10 @@ var djsex = {
         timer = setInterval(onChange, 5);
         window.onload = onChange;
     },
+    
+    deleteNode: function(el){
+		return(el.parentNode.removeChild(el));
+    },
+    
 };
 djsex.init();
