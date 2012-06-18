@@ -15,14 +15,29 @@ djsex.css = {
     },
     
     appendClass: function (el, classname) {
-	    var classes = el.className.split(" ");
-	    var alreadyclassed = false;
-	    classes.forEach(function(thisclassname) {
-	    	if(classname == thisclassname)
-	    		alreadyclassed=true;
-	    });
-	    if(!alreadyclassed)
-	    	classes.push(classname);
-		el.className = classes.join(" ")
+        if(el.className) {
+            var classes = el.className.split(" ");
+            var alreadyclassed = false;
+            classes.forEach(function(thisclassname) {
+                if(classname == thisclassname)
+                    alreadyclassed=true;
+            });
+            if(!alreadyclassed)
+                classes.push(classname);
+            el.className = classes.join(" ")
+        } else {
+            el.className=classname;
+        }
+    },
+    
+    deleteClass: function (el, classname) {
+        if(el.className) {
+            var classes = el.className.split(" ");
+            for(i=0; i<=classes.length; i++) {
+                if((classes[i]) && (classes[i]==classname))
+                    classes.splice(i,1);
+            }
+            el.className = classes.join(" ");
+        }
     },
 };
