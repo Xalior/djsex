@@ -92,6 +92,13 @@ var djsex = {
     Class: function(){
     },
 
+    firstChild: function(el){
+        el = el.firstChild;
+        while (el && el.nodeType == 3)
+            el = el.nextSibling;
+        return el;
+    },
+
     onDOMReady: function(fn, ctx){
         var ready, timer;
         var onChange = function(e){
