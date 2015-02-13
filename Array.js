@@ -7,8 +7,16 @@
  * D. Rimron <darran@xalior.com>
  */
 
-djsex.array = {
-    randomIndex: function(arr) {
-        return Math.floor(Math.random()*arr.length);
+if (djsex) {
+    if (djsex.math) {
+        djsex.array = {
+            randomIndex: function(arr) {
+                return djsex.math.randomInt(0, arr.length-1);
+            }
+        };
+    } else {
+        djsex.log('djsex.array requires djsex.math');
     }
-};
+} else {
+    console.log('DJSEX ERROR: could not find djsex.core!');
+}

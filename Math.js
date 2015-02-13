@@ -7,25 +7,31 @@
  * D. Rimron <darran@xalior.com>
  */
 
-djsex.math = {
-    randomint: function(floor, ceil) {
-        var min = floor === ceil ? ceil : floor; // min is value that is not max
-        var d = ceil - floor + 1; // distribution range
-        return Math.floor(Math.random() * d + floor);
-    },
+if (djsex) {
+    djsex.math = {
+        randomint: function(floor, ceil) {
+            var min = floor === ceil ? ceil : floor; // min is value that is not max
+            var d = ceil - floor + 1; // distribution range
+            return Math.floor(Math.random() * d + floor);
+        },
 
-    decimalToHex: function(d, padding) {
-        var hex = Number(d).toString(16);
-        padding = typeof (padding) === "undefined" || padding === null ? padding = 2 : padding;
+        randomInt: randomint,
 
-        while (hex.length < padding) {
-            hex = "0" + hex;
+        decimalToHex: function(d, padding) {
+            var hex = Number(d).toString(16);
+            padding = typeof (padding) === "undefined" || padding === null ? padding = 2 : padding;
+
+            while (hex.length < padding) {
+                hex = "0" + hex;
+            }
+
+            return hex;
+        },
+
+        invert: function(value) {
+            return (value * (-1));
         }
-
-        return hex;
-    },
-
-    invert: function(value) {
-        return (value * (-1));
-    },
-};
+    };
+} else {
+    console.log('DJSEX ERROR: could not find djsex.core!');
+}
