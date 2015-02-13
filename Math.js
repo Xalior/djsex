@@ -9,13 +9,11 @@
 
 if (djsex) {
     djsex.math = {
-        randomint: function(floor, ceil) {
+        randomInt: function(floor, ceil) {
             var min = floor === ceil ? ceil : floor; // min is value that is not max
             var d = ceil - floor + 1; // distribution range
             return Math.floor(Math.random() * d + floor);
         },
-
-        randomInt: randomint,
 
         decimalToHex: function(d, padding) {
             var hex = Number(d).toString(16);
@@ -32,6 +30,11 @@ if (djsex) {
             return (value * (-1));
         }
     };
+    /*
+     * Backwards Compatability!
+     */
+    djsex.math.randomint = djsex.math.randomInt;
 } else {
     console.log('DJSEX ERROR: could not find djsex.core!');
 }
+

@@ -11,7 +11,7 @@ if (djsex) {
     if (djsex.math) {
         djsex.array = {
             randomIndex: function(arr) {
-                return djsex.math.randomInt(0, arr.length-1);
+                return djsex.math.randomint(0, arr.length-1);
             }
         };
     } else {
